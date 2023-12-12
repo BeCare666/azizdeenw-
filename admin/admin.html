@@ -295,13 +295,13 @@
                                                         style="height: 50px;">
                                                         <option selected></option>
                                                        <option value="Électronique">Électronique</option>
-                                                       <option value="Hygiène & Santé">Hygiène & Santé</option>
+                                                       <option value="Hygiène-Santé">Hygiène & Santé</option>
                                                        <option value="Sports">Sports</option>
-                                                       <option value="Fournitures de Bureaux, Cuisine et Maison">Fournitures de Bureaux, Cuisine et Maison</option>
-                                                       <option value="Instrument de Musique">Instrument de Musique</option>
+                                                       <option value="Fournitures-de-Bureaux-Cuisine-et-Maison">Fournitures de Bureaux, Cuisine et Maison</option>
+                                                       <option value="Instrument-de-Musique">Instrument de Musique</option>
                                                        <option value="High-Tech">High-Tech</option>
-                                                       <option value="Jeux et Jouets">Jeux et Jouets </option>
-                                                       <option value="Luminaire et Éclairage">Luminaire et Éclairage</option>
+                                                       <option value="Jeux-et-Jouets">Jeux et Jouets </option>
+                                                       <option value="Luminaire-et-Éclairage">Luminaire et Éclairage</option>
                                                        <option value="Mode">Mode</option>
                                                     </select>
                                                 </div>
@@ -927,7 +927,8 @@
 
         
         //function to update the best product
-        document.getElementById('idseleectBest').addEventListener('click', function(){
+        
+        {/***       document.getElementById('idseleectBest').addEventListener('click', function(){
         const last = tableTakeIdproduct.slice(-1).pop();
         update(ref(db, "Thedatas/" + last), {
         addtocard: true,             
@@ -938,7 +939,7 @@
         .catch((error) => {
         alert("les données ne sont pas mise à jour " + error);
         });
-        })
+        })****/}
 
         //--------------delete data-----------------//
         function deletedata() {

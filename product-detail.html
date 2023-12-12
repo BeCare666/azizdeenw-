@@ -1404,7 +1404,22 @@
 				
 		function onStart(){
 			const TakeTheNumBerx = localStorage.getItem("takeTheNumBer");
-			var monDivwwqQX = document.getElementById('monDivwwq');
+			if(TakeTheNumBerx===null){
+				var monDivwwqQX = document.getElementById('monDivwwq');
+			var monDivwqQX = document.getElementById('monDivwq');
+		    //alert(TakeTheNumBer)
+			monDivwwqQX.setAttribute('data-notify', `0`);
+			
+			monDivwqQX.setAttribute('data-notify', `0`);
+
+			monDivwwqQX.addEventListener('click', function(){
+				window.location.href = "product.html?card=true"
+			})
+			monDivwqQX.addEventListener('click', function(){
+				window.location.href = "product.html?card=true"
+			})
+			}else{
+				var monDivwwqQX = document.getElementById('monDivwwq');
 			var monDivwqQX = document.getElementById('monDivwq');
 		    //alert(TakeTheNumBer)
 			monDivwwqQX.setAttribute('data-notify', `${TakeTheNumBerx}`);
@@ -1417,6 +1432,8 @@
 			monDivwqQX.addEventListener('click', function(){
 				window.location.href = "product.html?card=true"
 			})
+			}
+			
 
 		}
 {/******

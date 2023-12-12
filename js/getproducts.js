@@ -3,6 +3,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const productIdxxx = urlParams.get("card");
         const productIdyy = urlParams.get("category");
+
         if(productIdxxx){
             var myDivs = document.getElementById('monDivClick');
             myDivs.click()
@@ -29,8 +30,7 @@
                 snapshot.forEach((productSnapshot) => {
                     const productData = productSnapshot.val();
                    // var myCatory = productData.Category
-
-                    //const productId = productSnapshot.key;
+                    if(!productIdyy){
                   
                         var photoDataUrl = 'data:image/png;base64,' + productData.RollNo;
                         //var BreadcrumbId = document.getElementById('breadcrumbId');
@@ -71,7 +71,55 @@
                     </div>    
                         `;
         
-                        productList.innerHTML += productHTML;   
+                        productList.innerHTML += productHTML; 
+                         //const productId = productSnapshot.key;
+                    }else{
+                        if(productIdyy === productData.Category){
+                            var photoDataUrl = 'data:image/png;base64,' + productData.RollNo;
+                        //var BreadcrumbId = document.getElementById('breadcrumbId');
+                        //BreadcrumbId.innerHTML = `${myCatory} `  
+                        // Générez le HTML pour chaque produit
+                        const productHTML = `
+                        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women" >
+                        <!-- Block2 -->
+                        <div class="block2" style="background-color: #33333309 !important;  padding: 1vh;">
+                            <div class="block2-pic hov-img0" >
+                                <img src="${photoDataUrl}" alt="IMG-PRODUCT"  style="height: 50vh !important; width: 100% !important;">
+                                <a href="product-detail.html?id=${productData.Idproduct}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                 Details  
+                                </a>
+                            </div>
+                            <div class="block2-txt flex-w flex-t p-t-14">
+                                <div class="block2-txt-child1 flex-col-l item-title">
+                                    <a href="product-detail.html?id=${productData.Idproduct}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                    ${productData.NameOfstd}
+                                    </a>
+
+                                    <span class="stext-105 cl3">
+                                        $${productData.Prix}
+                                    </span>
+                                </div>
+
+                                <div class="block2-txt-child2 flex-r p-t-3">
+                                    <a style="cursor:pointer;" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2" onclick="addToCart('${productData.Idproduct}', '${productData.NameOfstd}', '${productData.Prix}', '${photoDataUrl}')">
+                                    <i class="zmdi zmdi-shopping-cart"  style="font-size: 26px;"></i>
+                                        <!-----
+                                        <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+                                        <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+                                        ---->
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                        `;
+        
+                        productList.innerHTML += productHTML; 
+                         //const productId = productSnapshot.key;
+                        }
+                    }
+                   
+  
                 });
             });
 
@@ -176,12 +224,24 @@
         
         //console.log("La somme du tableau est : " + sommeDuTableau);
         document.getElementById('payMyInvoice').addEventListener('click', function(){
+
+            var filteredProducts = cartItems.map(function(product) {
+                return {
+                  id: product.id,
+                  name: product.name,
+                  price: product.price,
+                  // Vous pouvez ajouter d'autres propriétés si nécessaire
+                };
+              });
+              
+              // Afficher le nouveau tableau dans la console
+              console.log(filteredProducts);
             openKkiapayWidget({
                 amount: `${sommeDuTableau}`,
                 position: "center",
                 callback: "javascript:sendmycommandinCentremodale()",
                 data: {
-                    produits: cartItems
+                    produits: filteredProducts
                 },
                 theme: "blue",
                 sandbox : "true",
@@ -193,11 +253,15 @@
                 var trans = response.transactionId;
                 //  console.log(trans);
                 if (trans) {
-                  localStorage.setItem("storageName", trans);
-                  window.location.href = "formation.html";
-                } else {
-                  alert(`quelque chose s'est mal passé`);
-                }
+                    cart = [];
+
+                    // Mettre à jour le stockage local avec le panier vide
+                    localStorage.setItem("cart", JSON.stringify(cart));
+
+                    setTimeout(()=>{
+                    window.location.href = "product.html"
+                    },5000)
+                } 
               });
         
            addFailedListener(error => {

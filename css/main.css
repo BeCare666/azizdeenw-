@@ -146,6 +146,9 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 	height: 100% !important;
 }
 }
+#product-list{
+	height: 100% !important;
+}
 
 @keyframes loader-scale {
   0% {

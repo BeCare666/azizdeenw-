@@ -212,7 +212,7 @@
                                             </span>
                                             <span data-whatever="@mdo"
                                                 id="AceptPlanning">Poster les
-                                                Produits</span>
+                                                Formations</span>
                                         </a>
                                         <a href="" style="opacity: 0;">fhkl</a>
                                     </div>
@@ -227,7 +227,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title"
-                                                id="exampleModalLabel">Produit à
+                                                id="exampleModalLabel">Formation à
                                                 poster</h5>
                                             <button type="button" class="close"
                                                 data-dismiss="modal"
@@ -240,7 +240,7 @@
                                                 <div class="form-group">
                                                     <label for="recipient-name"
                                                         class="col-form-label">Nom
-                                                        du Produit:</label>
+                                                        de la Formation:</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         id="recipient-name1">
@@ -249,6 +249,7 @@
                                                     <input type="file"
                                                         class="form-control"
                                                         id="recipient-name2">
+                                                        <!---
                                                         <label for="recipient-name"
                                                         class="col-form-label">Photo 2 :</label>
                                                     <input type="file"
@@ -266,7 +267,7 @@
                                                     <input type="file"
                                                         class="form-control"
                                                         id="recipient-name2X4">
-
+                                                    --->
                                                     <label for="recipient-name"
                                                         class="col-form-label">Quantité disponible :</label>
                                                     <input type="tel"
@@ -279,12 +280,17 @@
                                                         class="form-control"
                                                         id="recipient-name3">
 
-                                                        
                                                       <label for="recipient-name"
                                                       class="col-form-label">Prix Normo</label>
                                                   <input type="tel"
                                                       class="form-control"
                                                       id="recipient-name3Prix">
+
+                                                      <label for="recipient-name"
+                                                      class="col-form-label">Lien de la formation</label>
+                                                  <input type="tel"
+                                                      class="form-control"
+                                                      id="recipient-name3urlForm">
 
                                                     <label for="recipient-name"
                                                         class="col-form-label">La catégorie
@@ -293,16 +299,11 @@
                                                         id="exampleFormControlSelect1"
                                                         class="form-control"
                                                         style="height: 50px;">
-                                                        <option selected></option>
-                                                       <option value="Électronique">Électronique</option>
-                                                       <option value="Hygiène-Santé">Hygiène & Santé</option>
-                                                       <option value="Sports">Sports</option>
-                                                       <option value="Fournitures-de-Bureaux-Cuisine-et-Maison">Fournitures de Bureaux, Cuisine et Maison</option>
-                                                       <option value="Instrument-de-Musique">Instrument de Musique</option>
-                                                       <option value="High-Tech">High-Tech</option>
-                                                       <option value="Jeux-et-Jouets">Jeux et Jouets </option>
-                                                       <option value="Luminaire-et-Éclairage">Luminaire et Éclairage</option>
-                                                       <option value="Mode">Mode</option>
+                                                       <option selected></option>
+                                                       <option value="Formation-E-commerce">Formation E-commerce</option>
+                                                       <option value="Master-Rédaction-Web-SEO">Master Rédaction Web SEO</option>
+                                                       <option value="Formation-en-IA">Formation en IA</option>
+                                                        
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
@@ -319,7 +320,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" id="Selbtn1" data-dismiss="modal">Fermer</button>
-                                            <button type="button" data-dismiss="modal" class="btn btn-primary"  id="Insbtn">Poster le Produit</button>
+                                            <button type="button" data-dismiss="modal" class="btn btn-primary"  id="Insbtn">Poster la Formation</button>
                                             <button type="button" data-dismiss="modal" class="btn btn-primary" id="Updbtn" style="display: none;">Metrre à jour</button>
                                         </div>
                                     </div>
@@ -353,7 +354,7 @@
                             overflow-y: auto;
                             text-align:justify;">
                             <div class="card-header">
-                                <h5 class="mb-0">Tout nos Produits</h5>
+                                <h5 class="mb-0">Toutes nos Formations</h5>
                             </div>
                             <div class="table-responsive" style="margin-bottom:
                                 30px;">
@@ -379,7 +380,7 @@
                             </div>
                             <div class="card-footer border-0 mb-7">
                                 <span class="text-muted text-sm">Votre
-                                    répertoire des Produits.</span>
+                                    répertoire des Formations.</span>
                             </div>
                         </div>
                     </div>
@@ -393,7 +394,7 @@
                 <div class="modal-content" >
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalCenterTitle">Modification
-                            du Produit</h5>
+                            de la Formation</h5>
                         <button type="button" class="close" data-dismiss="modal"
                             aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -401,7 +402,7 @@
                     </div>
                     <div class="modal-body">
                         <p style="text-align: center;"> Voulez-vous vraiment
-                            mettre à jour cet Produit ?</p>
+                            mettre à jour cette Formation ?</p>
                     </div>
                     <div class="modal-footer">
                        <!-- <button type="button" class="btn btn-secondary"
@@ -453,7 +454,7 @@
                 </div>
             </div>
         </div>
-        <div id="preloader"></div>
+        <!--<div id="preloader"></div>-->
         <script>
         function countCharacters() {
         var textarea = document.getElementById("message-text");
@@ -480,15 +481,14 @@
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyDREUJMl3o4ZpZxSDt3zpkBMeYxCfM20-8",
-            authDomain: "autopartspro-d52e8.firebaseapp.com",
-            databaseURL: "https://autopartspro-d52e8-default-rtdb.firebaseio.com",
-            projectId: "autopartspro-d52e8",
-            storageBucket: "autopartspro-d52e8.appspot.com",
-            messagingSenderId: "1047825650618",
-            appId: "1:1047825650618:web:0f620729931670e64b4383"
+            apiKey: "AIzaSyBDaSON8rBJqUJeEZOKK5RpcyUJyTqbsgA",
+            authDomain: "saop-dc3ab.firebaseapp.com",
+            databaseURL: "https://saop-dc3ab-default-rtdb.firebaseio.com",
+            projectId: "saop-dc3ab",
+            storageBucket: "saop-dc3ab.appspot.com",
+            messagingSenderId: "134982812869",
+            appId: "1:134982812869:web:6d516188e73ed72a111cac"
         };
-
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
 
@@ -513,9 +513,10 @@
         //--------------referances-----------------//       Prix          
         var namebox = document.getElementById("recipient-name1");
         var rollbox = document.getElementById("recipient-name2");
-        var nameboxPromo = document.getElementById("recipient-name3");
+        var nameboxPromo = document.getElementById("recipient-name3"); 
         var rollboxPrix = document.getElementById("recipient-name3Prix");
-        var rollboxX = document.getElementById("recipient-name2X");
+        var Recipientname3urlForm = document.getElementById("recipient-name3urlForm");
+       // var rollboxX = document.getElementById("recipient-name2X");
         var genbox = document.getElementById("recipient-name4");
         var genboxprix = document.getElementById("exampleFormControlSelect1");
         var genboxprixstart = document.getElementById("exampleFormControlSelect1start");
@@ -618,7 +619,7 @@
         }
 
         var urlImageX = []
-        var inputElement = document.getElementById("recipient-name2X");
+       // var inputElement = document.getElementById("recipient-name2X");
         // Ajoutez un gestionnaire d'événements pour écouter le changement de fichier
         inputElement.addEventListener("change", handleFilesX, false);
 
@@ -689,7 +690,7 @@
         }
 
         var urlImageX3 = []
-        var inputElement = document.getElementById("recipient-name2X3");
+        //var inputElement = document.getElementById("recipient-name2X3");
         // Ajoutez un gestionnaire d'événements pour écouter le changement de fichier
         inputElement.addEventListener("change", handleFilesX3, false);
 
@@ -762,7 +763,7 @@
 
 
         var urlImageX4 = []
-        var inputElement = document.getElementById("recipient-name2X4");
+        //var inputElement = document.getElementById("recipient-name2X4");
         // Ajoutez un gestionnaire d'événements pour écouter le changement de fichier
         inputElement.addEventListener("change", handleFilesX4, false);
 
@@ -870,12 +871,13 @@
         Idproduct: idproduct,
         NameOfstd: namebox.value,
         RollNo: urlImage[0],
-        RollNoX: urlImageX[0],
-        RollNoX3: urlImageX3[0],
-        RollNoX4: urlImageX4[0],
+       // RollNoX: urlImageX[0],
+       //RollNoX3: urlImageX3[0],
+       // RollNoX4: urlImageX4[0],
         Prix: genbox.value,
-        PrixPromo: nameboxPromo.value,
+        PrixPromo: nameboxPromo.value, 
         PrixNormo: rollboxPrix.value,
+        URLNormo: Recipientname3urlForm.value,
         Category: genboxprix.value,
         Genboxtextarea: genboxtextarea.value,
         Datetime: fullDate,
@@ -914,6 +916,7 @@
                 Genboxtextarea: genboxtextarea.value,
                 PrixPromo: nameboxPromo.value,
                 PrixNormo: rollboxPrix.value,
+                URLNormo: Recipientname3urlForm.value,
                 Datetime: fullDate
                 
             })
@@ -974,6 +977,7 @@
             genboxtextarea.value = snapshot.val().Genboxtextarea;
             nameboxPromo.value = snapshot.val().PrixPromo;
             rollboxPrix.value = snapshot.val().PrixNormo;
+            Recipientname3urlForm.value = snapshot.val().URLNormo
             } else {
             alert("no data");
             }
@@ -996,7 +1000,7 @@
             onValue(dbref, (snopshot) => {
                 snopshot.forEach((childsnopshot) => {
                     myalldatas.push(childsnopshot.val());
-                    document.getElementById('preloader').style.display = "none"
+                    //document.getElementById('preloader').style.display = "none"
                 });
                 if (myalldatas.length != 0) {
                     return myalldatas.forEach((k) => {
@@ -1053,13 +1057,13 @@
             div.append(trow)
             })
             } else {
-                document.getElementById('preloader').style.display = "none"
+                //document.getElementById('preloader').style.display = "none"
                 var CreateAllproductnodata = document.getElementById('createAllproductnodata')
                     CreateAllproductnodata.innerHTML = ` 
                      <div style = "display: flex; justify-content: center; margin: auto;">
                     <img src="../images/no_data.svg" alt="" style = "width: 100%; height: 20vh;">
                 </div> 
-                <p style="text-align: center;">Vous n'avez pas encore de Produits.</p>
+                <p style="text-align: center;">Vous n'avez pas encore de Formations.</p>
              `
             }
             });

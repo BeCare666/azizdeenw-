@@ -10,13 +10,13 @@
         }
         // Récupérez une référence à la base de données Firebase
         const firebaseConfig = {
-            apiKey: "AIzaSyDREUJMl3o4ZpZxSDt3zpkBMeYxCfM20-8",
-            authDomain: "autopartspro-d52e8.firebaseapp.com",
-            databaseURL: "https://autopartspro-d52e8-default-rtdb.firebaseio.com",
-            projectId: "autopartspro-d52e8",
-            storageBucket: "autopartspro-d52e8.appspot.com",
-            messagingSenderId: "1047825650618",
-            appId: "1:1047825650618:web:0f620729931670e64b4383"
+            apiKey: "AIzaSyBDaSON8rBJqUJeEZOKK5RpcyUJyTqbsgA",
+            authDomain: "saop-dc3ab.firebaseapp.com",
+            databaseURL: "https://saop-dc3ab-default-rtdb.firebaseio.com",
+            projectId: "saop-dc3ab",
+            storageBucket: "saop-dc3ab.appspot.com",
+            messagingSenderId: "134982812869",
+            appId: "1:134982812869:web:6d516188e73ed72a111cac"
             };
             firebase.initializeApp(firebaseConfig);
             const database = firebase.database();
@@ -25,6 +25,30 @@
             const productRef = database.ref("Thedatas");
             productRef.on("value", (snapshot) => {
                 document.getElementById('sameToBody').style.display = "none"
+                var UserMailMy = localStorage.getItem('userMailMy');
+                //alert(UserMailMy)
+                if(!UserMailMy && UserMailMy !== null){
+                    swal("Entrer un email valide", {
+                        content: "input",
+                        closeOnClickOutside: false,
+                        })
+                        .then((value) => {
+                        localStorage.setItem("userMailMy", value)
+                        swal({
+                            title: "Comment ça marche ?",
+                            text: `Cher visiteur,
+
+                            Pour bénéficier de l'une ou plusieurs de nos formations, veuillez cliquer sur le bouton "Ajouter au panier" afin d'ajouter la formation sélectionnée à votre panier. Vous pouvez ajouter plusieurs formations au panier. Ensuite, cliquez sur le bouton "Panier" en haut pour visualiser vos sélections. Enfin, cliquez sur le bouton "Payer".
+                            
+                            Une fois le paiement réussi, vous recevrez un message dans votre boîte mail contenant les liens vers les formations. N'oubliez pas de consulter également votre dossier de spams pour vérifier vos messages.
+                            
+                            Nous vous remercions !`,
+                            icon: "info",
+                            closeOnClickOutside: false,
+                        })
+                        });
+                }
+               
                 const productList = document.getElementById("product-list");
                 productList.innerHTML = ""; // Effacez le contenu précédent
                 snapshot.forEach((productSnapshot) => {
@@ -37,7 +61,7 @@
                         //BreadcrumbId.innerHTML = `${myCatory} `  
                         // Générez le HTML pour chaque produit
                         const productHTML = `
-                        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women" >
+                        <div class="col-sm-6 col-md-4 col-lg-4 p-b-35 isotope-item women" >
                         <!-- Block2 -->
                         <div class="block2" style="background-color: #33333309 !important;  padding: 1vh;">
                             <div class="block2-pic hov-img0" >
@@ -58,7 +82,7 @@
                                 </div>
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
-                                    <a style="cursor:pointer;" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2" onclick="addToCart('${productData.Idproduct}', '${productData.NameOfstd}', '${productData.Prix}', '${photoDataUrl}')">
+                                    <a style="cursor:pointer;" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2" onclick="addToCart('${productData.Idproduct}', '${productData.NameOfstd}', '${productData.Prix}', '${photoDataUrl}', '${productData.URLNormo}')">
                                     <i class="zmdi zmdi-shopping-cart"  style="font-size: 26px;"></i>
                                         <!-----
                                         <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
@@ -101,7 +125,7 @@
                                 </div>
 
                                 <div class="block2-txt-child2 flex-r p-t-3">
-                                    <a style="cursor:pointer;" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2" onclick="addToCart('${productData.Idproduct}', '${productData.NameOfstd}', '${productData.Prix}', '${photoDataUrl}')">
+                                    <a style="cursor:pointer;" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2" onclick="addToCart('${productData.Idproduct}', '${productData.NameOfstd}', '${productData.Prix}', '${photoDataUrl}', '${productData.URLNormo}')">
                                     <i class="zmdi zmdi-shopping-cart"  style="font-size: 26px;"></i>
                                         <!-----
                                         <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
@@ -125,7 +149,7 @@
 
 
 
-        function addToCart(productId, productName, productPrice, photoDataUrlX) {
+        function addToCart(productId, productName, productPrice, photoDataUrlX, proURLNormo) {
             // Vérifiez d'abord si localStorage existe
             if (typeof(Storage) !== "undefined") {
                 // Récupérez le panier actuel depuis localStorage (s'il existe)
@@ -136,7 +160,8 @@
                     id: productId,
                     name: productName,
                     price: productPrice,
-                    img: photoDataUrlX
+                    img: photoDataUrlX,
+                    URLNormoX: proURLNormo
                 };
                 swal({
                     title: productName,
@@ -236,6 +261,22 @@
               
               // Afficher le nouveau tableau dans la console
               console.log(filteredProducts);
+              var filteredProductsTelegram = cartItems.map(function(productT) {
+                return {
+                    URLNormoX: productT.URLNormoX,
+                  // Vous pouvez ajouter d'autres propriétés si nécessaire
+                };
+              });
+             // console.log(filteredProductsTelegram);
+ 
+              // Transformez le tableau d'objets en un tableau d'URLs
+                var urlArray = filteredProductsTelegram.map(function(obj) {
+                    return obj.URLNormoX;
+                });
+
+                // Affichez le tableau d'URLs dans la console
+             //   console.log(urlArray);
+
             openKkiapayWidget({
                 amount: `${sommeDuTableau}`,
                 position: "center",
@@ -247,6 +288,7 @@
                 sandbox : "true",
                 key: "6979f3c098d511ee9fde7de6592cc8b4",
               });
+             
               //la reponse du payement kkiapay
               addSuccessListener((response) => {
                // console.log(response);
@@ -254,9 +296,69 @@
                 //  console.log(trans);
                 if (trans) {
                     cart = [];
-
                     // Mettre à jour le stockage local avec le panier vide
                     localStorage.setItem("cart", JSON.stringify(cart));
+                    var UserMailMy = localStorage.getItem('userMailMy');
+                       //  envoi de mail de suspension
+                       const apiKey = "785B4029FA0EA1FB573C09903D5D557568F868BD402BE1746D1852EDFBC87D0249E623331ADD62923850AE601C019743";
+                          const apiUrl = "https://api.elasticemail.com/v2/email/send";
+                          // Définir les paramètres de l'e-mail
+                          const emailParams = {
+                            apiKey: apiKey ,
+                            subject: "Url des formations",
+                            from: "traducto.inter@gmail.com",
+                            to: UserMailMy,
+                            bodyHtml: `
+                            <table cellpadding="10" cellspacing="0" style="background-color: #f1f1f1; padding: 20px;">
+                            <tr>
+                                <td>
+                                <strong style="color: #333; text-align: center !important;">Url des formations</strong>
+                                <p style="font-size: 16px; color: #666;">
+                                  Chère ${UserMailMy},
+                                  J'espère que ce message vous trouve bien. 
+                                  Nous vous remercions pour votre confiance.
+                                  Voici le(s) de(s) formation(s).
+                                  ${urlArray.join('\n')}
+                                </p>
+                             
+                                <p style="font-size: 16px; color: #666;">
+                                  Restant à votre disposition pour toute information supplémentaire.
+                                </p>
+                                  
+                                <p style="font-size: 14px; color: #999;">
+                                    Cordialement,     
+                                </p>
+                                <p style="font-size: 14px; color: #999;">
+                                  E-commerce Académie.
+                                </p>
+                                </td>
+                            </tr>
+                            </table>
+                            `
+                          };
+                
+                          // Effectuer une requête POST vers l'API ElasticEmail
+                          fetch(apiUrl, {
+                            method: "POST",
+                            headers: {
+                              "Content-Type": "application/x-www-form-urlencoded"
+                            },
+                            body: new URLSearchParams(emailParams)
+                          })
+                            .then((response) => response.json())
+                            .then((data) => {
+                            console.log(data); // Afficher la réponse de l'API ElasticEmail
+                                   if (data.success) {
+                                   // window.location.href = "product.html"
+                              
+                              } else {
+                                // window.location.href = "product.html"
+                              } 
+                            })
+                            .catch((error) => {
+                            //  window.location.href = "product.html"
+                            });
+                           // end envoi de mail de suspension
 
                     setTimeout(()=>{
                     window.location.href = "product.html"

@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/mylogo.jpeg"/>
+	<link rel="icon" type="image/png" href="images/mylogo.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -35,6 +35,8 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/loader.css">
 <!--===============================================================================================-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-... (la suite des caractères)" crossorigin="anonymous">
 
 </head>
 <body class="animsition">
@@ -75,7 +77,7 @@
 					
 					<!-- Logo desktop -->		
 					<a href="#" class="logo">
-						<img src="images/mylogo.jpeg" alt="IMG-LOGO"
+						<img src="images/mylogo.png" alt="IMG-LOGO"
 						style="width: 100%; height: 9vh; border-radius: 5px;"
 						>
 					</a>
@@ -93,22 +95,23 @@
 							</li>
 
 							<li>
-								<a href="product.html">Boutique</a>
+								<a href="product.html">Les formations</a>
 							</li>
 
 							<li>
-								<a href="about.html">About</a>
+								<a href="about.html">À propos</a>
 							</li>
+							<!----
 							<li>
 								<a href="faq.html">F.A.Q</a>
 							</li>
 							<li>
-								<a href="politique.html">Politique</a>
+								<a href="politique.html" class="cacheIdClass">Politique</a>
 							</li>
 							<li>
-								<a href="termes.html">Termes</a>
+								<a href="termes.html" class="cacheIdClass">Termes</a>
 							</li>
-
+						    -->
 							<li>
 								<a href="contact.html">Contact</a>
 							</li>
@@ -139,7 +142,7 @@
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
 				<a href="index.html">
-					<img src="images/mylogo.jpeg" alt="IMG-LOGO"
+					<img src="images/mylogo.png" alt="IMG-LOGO"
 					style="width: 10vh; height: 9vh; border-radius: 5px;"
 					>
 				</a>
@@ -213,23 +216,24 @@
 				</li>
 
 				<li>
-					<a href="product.html">Boutique</a>
+					<a href="product.html">Les formations</a>
 				</li>
 
 				<li>
-					<a href="about.html">About</a>
+					<a href="about.html">À propos</a>
 				</li>
+				<!----
 				<li>
 					<a href="faq.html">F.A.Q</a>
 				</li>
 				<li>
-					<a href="politique.html">Politique</a>
+					<a href="politique.html" class="cacheIdClass">Politique</a>
 				</li>
 
 				<li>
-					<a href="termes.html">Termes</a>
+					<a href="termes.html" class="cacheIdClass">Termes</a>
 				</li>
-
+			    -->
 				<li>
 					<a href="contact.html">Contact</a>
 				</li>
@@ -342,27 +346,29 @@
 
 	<!-- Slider -->
 	 
-	<section class="section-slide" id="hearderId" style=" background-image: url(images/slide-01.jpg);">
+	<section class="section-slide" id="hearderId" style=" background-image: url(images/Strategy.jpg);">
 		<div class="wrap-slick1">
 			<div class="slick1">
 				<div class="item-slick1" > 
 					<div class="container h-full">  						 
-						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-								<span class="ltext-101 cl2 respon2">
-									Collection produits 2023
-								</span>
-							</div>
-								
+						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5" >
+							<div style="background-color: #22222270 !important; padding: 10px;">
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-									NOUVELLE SESSION
+								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1" style="color: white; ">
+									Soyez la bienvenue !
 								</h2>
 							</div>
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+								<span class="ltext-101 cl2 respon2" style="color: white; ">
+								<em style="color: white; ">e-academie,</em> vivez l'apprentissage numérique au-delà des limites
+								</span>
+							</div>
+							</div><hr>
+						
 								
 							<div class="layer-slick1 animated vi  sible-false" data-appear="zoomIn" data-delay="1600">
-								<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-									Acheter maintenant
+								<a href="product.html" style="background-color: rgb(4, 0, 255) !important; color: white;" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+									Visiter nos formations
 								</a>
 							</div>
 						</div>
@@ -378,7 +384,7 @@
 		
 	</section>
 	<!-- Banner -->
-	<div class="sec-banner bg0 p-t-80 p-b-50" >
+	<div class="sec-banner bg0 p-t-80 p-b-50" style="display: none;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto" >
@@ -1387,10 +1393,62 @@
 			</div>
 		</div>
 	</section>
+	<section>
+		<section class="we-offer-area text-center bg-gray">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="site-heading text-center">
+							<h2>Nos <span>Services</span></h2>
+							<h4>Voici nos services</h4>
+						</div>
+					</div>
+				</div>
+					<div class="row our-offer-items less-carousel">
+						<!-- Single Item -->
+						<div class="col-md-4 col-sm-6 equal-height">
+							<div class="item">
+								<i class="fas fa-pen-fancy"></i>
+								<h4>Formation en E-Commerce</h4>
+								<p>
+									Développez des compétences pratiques pour stimuler la croissance des ventes et fidéliser les clients.
+								</p>
+							</div>
+						</div>
+						<!-- End Single Item -->
+	
+						<!-- Single Item -->
+						<div class="col-md-4 col-sm-6 equal-height">
+							<div class="item">
+								<i class="fas fa-dharmachakra"></i>
+								<h4>Formation en Intelligence Artificielle (IA)</h4>
+								<p>
+									Plongez dans le monde fascinant de l'IA avec des cours allant de l'apprentissage automatique aux applications pratiques de l'IA.
+								</p>
+							</div>
+						</div>
+						<!-- End Single Item -->
+	
+						<!-- Single Item -->
+						<div class="col-md-4 col-sm-6 equal-height">
+							<div class="item">
+								<i class="fas fa-tasks"></i>
+								<h4>Formation en Rédaction Web et SEO </h4>
+								<p>
+									Apprenez les meilleures pratiques de référencement pour améliorer la visibilité de votre contenu en ligne. 
+								</p>
+							</div>
+						</div>
+						<!-- End Single Item -->
 
+						
+					</div>
+			</div>
+		</section>	
+	</section>
 
 	<!-- Footer -->
-	<footer class="bg3 p-t-75 p-b-32">
+	<footer class="bg3 p-t-75 p-b-32" style="background-color: rgb(8, 8, 116);">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-lg-3 p-b-50">
@@ -1402,7 +1460,7 @@
 						
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								<img src="images/mylogo.jpeg" alt="" style="width: 40vh; height: 29vh;">
+								<img src="images/mylogo.png" alt="" style="width: 40vh; height: 29vh;">
 							</a>
 						</li>
 
@@ -1425,17 +1483,17 @@
 
 						<li class="p-b-10">
 							<a href="product.html" class="stext-107 cl7 hov-cl1 trans-04">
-								Boutique
+								Les formations
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="about.html" class="stext-107 cl7 hov-cl1 trans-04">
-								About
+								À propos
 
 							</a>
 						</li>
-
+						<!----
 						<li class="p-b-10">
 							<a href="faq.html" class="stext-107 cl7 hov-cl1 trans-04">
 								F.A.Q
@@ -1444,12 +1502,12 @@
 						</li>
 
 						<li class="p-b-10">
-							<a href="politique.html" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="politique.html" class="stext-107 cl7 hov-cl1 trans-04 cacheIdClass">
 								Politique
 
 							</a>
 						</li>
-
+					-->
 						<li class="p-b-10">
 							<a href="contact.html" class="stext-107 cl7 hov-cl1 trans-04">
 								Contact
@@ -1464,9 +1522,9 @@
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-						Nous sommes là pour faire en sorte que chaque achat soit une source de satisfaction et de joie.
-						Profitez de nos offres spéciales, de la livraison rapide. 
-						Nous vous remercions de faire partie de la communauté Azizdeen.
+						E-commerce Académie est votre partenaire privilégié pour l'apprentissage numérique, 
+						offrant une gamme complète de services de formation dans des domaines cruciaux 
+						pour le monde moderne des affaires.
 					</p>
 
 					<div class="p-t-27">
@@ -1489,7 +1547,7 @@
 						Newsletter
 					</h4>
 					<p class="stext-107 cl7 size-201">
-					Faites partir du monde d'Azizdeen, où le shopping devient une expérience unique.
+					Rejoignez E-commerce Académie, où l'apprentissage rencontre l'avenir !
 					Nous vous remercions pour votre confiance.
 					</p>
 					<form>
@@ -1532,7 +1590,7 @@
 
 				<p class="stext-107 cl6 txt-center">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="" target="_blank">Azizdeen</a> &amp; distributed by <a href="" target="_blank">Azizdeen</a>
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="" target="_blank">E-commerce Académie</a> &amp; distributed by <a href="" target="_blank">E-commerce Académie</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
 				</p>

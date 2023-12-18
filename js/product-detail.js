@@ -3,13 +3,13 @@ const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
 // Récupérez une référence à la base de données Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyDREUJMl3o4ZpZxSDt3zpkBMeYxCfM20-8",
-    authDomain: "autopartspro-d52e8.firebaseapp.com",
-    databaseURL: "https://autopartspro-d52e8-default-rtdb.firebaseio.com",
-    projectId: "autopartspro-d52e8",
-    storageBucket: "autopartspro-d52e8.appspot.com",
-    messagingSenderId: "1047825650618",
-    appId: "1:1047825650618:web:0f620729931670e64b4383"
+    apiKey: "AIzaSyBDaSON8rBJqUJeEZOKK5RpcyUJyTqbsgA",
+    authDomain: "saop-dc3ab.firebaseapp.com",
+    databaseURL: "https://saop-dc3ab-default-rtdb.firebaseio.com",
+    projectId: "saop-dc3ab",
+    storageBucket: "saop-dc3ab.appspot.com",
+    messagingSenderId: "134982812869",
+    appId: "1:134982812869:web:6d516188e73ed72a111cac"
  };
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
